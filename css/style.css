@@ -1,0 +1,183 @@
+body {margin: 0; font-family: "Open Sans"; font-weight: 400; font-style: normal; color: #000000; height: 100%; font-size: 14px;}
+
+p {margin: 0 0 20px 0; padding: 0;}
+
+.black {color: black; margin: 5px; padding: 0;}
+
+#head {position: fixed; height: 70px; background-color: #0066cc; width: 100%; left:0; top:0; z-index: 1;box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.12);}
+
+#logo {height: 70px; padding-right: 5px; float: left; padding-top: 14px; padding-left: 20px;}
+#logoimg {float: left; text-align: center; height: 42px; padding-right: 10px;}
+#logodoc {border-left: 2px solid #fa9a5a; float: right; margin-top: 10px; padding-left: 10px; font-size: 18px; font-weight: 400; color: #fff;}
+
+#code {height: 60px; position: fixed; width: calc(50% - 100px); right: 0;}
+#buttons > a {color: white; border-bottom: 7px solid #4DD9B4; padding: 7px; cursor: pointer; display: inline-block; width: 60px; text-align: center;}
+#buttons > a.active {border-bottom: 7px solid #00BD9A}
+#buttons {position: absolute; bottom: 0;}
+#showbutton{display: none;}
+
+#pageWrap {margin-top: 70px; margin-left: 200px; position: relative;}
+#pageContent{padding-top: 5px; line-height: 1.9em;}
+#darkbox {width: calc(50% + 20px); background-color: #0066cc; position: absolute; right: 0; top: 0; bottom: 0; z-index: -1; border-left: 1px solid #D8D8D8;}
+
+.tocify {overflow-y: hidden; overflow-x: hidden; }
+#tocwrap {width: 200px; position: fixed; top: 60px; left: 0; min-height: 90%; padding-top: 30px; font-size: 12px; background-color: white; border-right: 1px solid #D8D8D8; display: block;}
+#navigation {padding: 20px; color: #003366; font-weight: 700; text-transform: uppercase;}
+.codeSection {float: right; width: calc(50% - 20px); padding: 0 20px 0 20px; background-color: #0066cc;}
+.descSection {float: left; width: calc(50% - 60px); padding: 0px 20px 0 20px;}
+.remark {border-left: 3px solid #003366; border-right: 3px solid #003366; padding: 0px 12px 0px 12px;}
+.warning {border-left: 3px solid red; border-right: 3px solid red; padding: 0px 12px 0px 12px;}
+
+.sectionWrapper {border-bottom: 2px solid #D8D8D8; padding-bottom: 5px; padding-top: 25px;}
+.open {display: block !important;}
+
+.php {}
+.js {display: none;}
+.ruby {display: none;}
+.python {display: none;}
+
+
+.asaf {padding: 0; margin: 0; font-size: 14px; width: 100%;}
+
+pre {overflow: auto; margin: 0;}
+.preCode {max-width: calc(50vw - 200px); background: #D7D5CE; box-shadow: 0px 1px 1px 0px rgba(255,255,255,0.06), inset 0px 1px 1px 0px rgba(0,0,0,0.12); margin-top: 5px; margin-bottom: 5px; border: 2px solid white; border-radius: 4px;}
+
+li.active {background-color: #D7D5CE;}
+
+h1{color: #000000; font-size: 14px; font-weight: 700; text-transform: uppercase; margin: 0; padding-left: 20px;}
+h2{color: #000000; font-size: 14px; font-weight: 700; margin: 0;}
+h3{font-size: 14px; margin: 0;}
+h4{font-size: 14px; font-weight: 400; margin: 0; text-transform: uppercase;}
+
+/* tocify */
+.tocify ul, .tocify li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: 25px;
+}
+
+/* Top level header elements */
+.tocify-header {
+    text-indent: 20px;
+    font-weight: 700;
+	padding-bottom: 5px !important;
+	padding-top: 5px !important;
+	text-transform: capitalize;
+}
+
+/* Top level subheader elements.  These are the first nested items underneath a header element. */
+.tocify-subheader {
+    text-indent: 20px;
+    display: none;
+}
+
+/* Makes the font smaller for all subheader elements. */
+.tocify-subheader li {
+    font-weight: 300;
+}
+
+/* Further indents second level subheader elements. */
+.tocify-subheader .tocify-subheader {
+    text-indent: 30px;
+}
+
+/* Further indents third level subheader elements. You can continue this pattern if you have more nested elements. */
+.tocify-subheader .tocify-subheader .tocify-subheader {
+    text-indent: 0px;
+}
+
+/* Twitter Bootstrap Override Style */
+.nav-list > li > a, .nav-list .nav-header {
+    margin: 0px;
+}
+
+/* Twitter Bootstrap Override Style */
+.nav-list > li > a {
+    width: 100%;
+    display: block;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* highlight code */
+.tomorrow-comment, pre .comment, pre .title {
+  color: #7285b7;
+}
+
+.tomorrow-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #ff9da4;
+}
+
+.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #ffc58f;
+}
+
+.tomorrow-yellow, pre .class, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #ffeead;
+}
+
+.tomorrow-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #d1f1a9;
+}
+
+.tomorrow-aqua, pre .css .hexcolor {
+  color: #99ffff;
+}
+
+.tomorrow-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #bbdaff;
+}
+
+.tomorrow-purple, pre .keyword, pre .javascript .function {
+  color: #ebbbff;
+}
+
+pre code {
+  display: block;
+  line-height: 1.5;
+  padding: 7px 9px 7px 9px;
+}
+
+
+/* ---------------------------------------------------------------- */
+
+/* apidoc sections */
+.apidoc {padding: 20px; font-size: 10px; background-color: #ecf2f1; margin-left: -19px;  margin-right: -19px;}
+.apidoc table {width: 90%; border-spacing: 0px; border-collapse: collapse; background-color: white; margin-bottom: 10px; border: 1px solid #D8D8D8;}
+.apidoc table th {font-size: 12px; background-color: #0066cc; text-align: left; padding: 5px; margin: 0; color: white; border: 1px solid #D8D8D8;}
+.apidoc table td {font-size: 12px; padding: 5px; border: 1px solid #D8D8D8;}
+.apidoc h5 {margin: 0 0 5px 0; font-size: 12px;}
+.apidoc p {margin: 0 0 5px 0;}
+
+/* ---------------------------------------------------------------- */
+
+/* 900px version */
+@media screen and (max-width: 900px) {
+    #tocwrap {display: none;}
+	#showbutton{display: inline; position: absolute; right: 20px; top: 25px; cursor: pointer;}
+	#pageWrap {margin-top: 60px; margin-left: 0; position: relative;}
+	#code {width: 50%;}
+}
+/*
+     FILE ARCHIVED ON 06:17:42 Nov 26, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:32:46 May 06, 2019.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  LoadShardBlock: 36.087 (3)
+  esindex: 0.005
+  captures_list: 68.635
+  CDXLines.iter: 10.18 (3)
+  PetaboxLoader3.datanode: 44.09 (4)
+  exclusion.robots: 0.174
+  exclusion.robots.policy: 0.162
+  RedisCDXSource: 19.993
+  PetaboxLoader3.resolve: 34.682
+  load_resource: 73.382
+*/
