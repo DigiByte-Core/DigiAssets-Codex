@@ -1580,7 +1580,7 @@
                 </div>
               </div>
               <div class="js">
-                <h4>create a transaction that sends colored coins</h4>
+                <h4>create a transaction that sends digiassets</h4>
                 <div class="preCode">
                   <pre><code class="hljs php"><span class="hljs-keyword">var</span> DigiByte = <span class="hljs-keyword">require</span>(<span class="hljs-string">'digibyte'</span>)
 <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">require</span>(<span class="hljs-string">'request'</span>)
@@ -1653,7 +1653,7 @@
                 </div>
               </div>
               <div class="ruby">
-                <h4>create a transaction that sends colored coins</h4>
+                <h4>create a transaction that sends digiassets</h4>
                 <div class="preCode">
                   <pre><code class="hljs php"><span class="hljs-keyword">var</span> DigiByte = <span class="hljs-keyword">require</span>(<span class="hljs-string">'digibyte'</span>)
 <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">require</span>(<span class="hljs-string">'request'</span>)
@@ -1726,7 +1726,7 @@
                 </div>
               </div>
               <div class="python">
-                <h4>create a transaction that sends colored coins</h4>
+                <h4>create a transaction that sends digiassets</h4>
                 <div class="preCode">
                   <pre><code class="hljs php"><span class="hljs-keyword">var</span> DigiByte = <span class="hljs-keyword">require</span>(<span class="hljs-string">'digibyte'</span>)
 <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">require</span>(<span class="hljs-string">'request'</span>)
@@ -4621,7 +4621,7 @@
               <tbody>
                 <tr>
                   <td>
-                    <br>In this getting started guide we will walk you through the two core examples of the colored coins api:<br><b>issuing</b> a new asset and <b>transferring</b> an existing asset.
+                    <br>In this getting started guide we will walk you through the two core examples of the digiassets api:<br><b>issuing</b> a new asset and <b>transferring</b> an existing asset.
                     <p></p>
                     <p>The examples given in this guide are written in javascript using the popular libraries <a href="https://nodejs.org/" target="_blank">node js</a> and <a href="http://github.com/digicontributer/digibyte-js" target="_blank">DigiByte-js</a>.</p>
                     <p>All the code snippets used in this getting started guide can be found <a href="https://github.com/colu-platform/colugettingstarted/tree/master/api" target="_blank">on github</a>.</p>
@@ -4934,7 +4934,7 @@
                         <pre><code class="hljs cpp"><span class="hljs-comment">// issue.js</span><br><span class="hljs-comment">...</span><br><span class="hljs-comment">key = new DigiByte.PrivateKey({ network: DigiByte.Networks.testnet});</span><br><span class="hljs-comment">new_address = key.toAddress().toString();</span><br><span class="hljs-comment">...</span></code></pre>
                       </div>
                       <p></p>
-                      <p>Now define an auxiliary function to help us POST to the colored coins API.<br>This function accepts the json_data to be posted and the API end point (as well as a callback).</p>
+                      <p>Now define an auxiliary function to help us POST to the digiassets API.<br>This function accepts the json_data to be posted and the API end point (as well as a callback).</p>
                       <p></p>
                       <div class="preCode">
                         <pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> issue.js<br>...<br><span class="hljs-reserved">function</span> postToApi(api_endpoint, json_data, callback) {<br>    <span class="hljs-built_in">console</span>.log(api_endpoint+<span class="hljs-string">': '</span>, JSON.stringify(json_data));<br>    request.post({<br>        <span class="hljs-attribute">url</span>: <span class="hljs-string">'https://testnetapi.digiassets.org/v3/'</span>+api_endpoint,<br>        <span class="hljs-attribute">headers</span>: {<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>},<br>        <span class="hljs-attribute">form</span>: json_data<br>    }, <br>    <span class="hljs-reserved">function</span> (error, response, body) {<br>        <span class="hljs-keyword">if</span> (error) {<br>            <span class="hljs-keyword">return</span> callback(error);<br>        }<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> body === <span class="hljs-string">'string'</span>) {<br>            body = JSON.parse(body)<br>        }<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Status: '</span>, response.statusCode);<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Body: '</span>, JSON.stringify(body));<br>        <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, body);<br>    });<br>};<br>...</code></pre>
@@ -4966,7 +4966,7 @@
                         <pre><code class="hljs bash">&gt; node issue.js<br>----------------<br>issue:  {<span class="hljs-string">'issueAddress'</span>:<span class="hljs-string">'dgbt1q90565k6em5jw0m7lusqjdammudmfys494z94td'</span>,<span class="hljs-string">'amount'</span>:<span class="hljs-number">1</span>,<span class="hljs-string">'fee'</span>:<span class="hljs-number">5000</span>}}<br>Status:  <span class="hljs-number">500</span><br>Body:  <span class="hljs-string">'{\'</span>error\<span class="hljs-string">':\'</span><b>Not enough funds to cover issuence</b>\<span class="hljs-string">'}'</span><br>&gt;</code></pre>
                       </div>
                       <p></p>
-                      <p>As you may have expected, we are getting an error. The error is pretty self explanatory, we first need to fund the issuing address with enough DigiBytes to finance the colored coins <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Coloring-Scheme#issuance-and-transfer-transactions" target="_blank">issuance transaction</a>.</p>
+                      <p>As you may have expected, we are getting an error. The error is pretty self explanatory, we first need to fund the issuing address with enough DigiBytes to finance the digiassets <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Coloring-Scheme#issuance-and-transfer-transactions" target="_blank">issuance transaction</a>.</p>
                       <p>Fortunately for us, <a href="http://DigiAssets.org/documentation/#CreatingaTestnetAddress" target="_blank">we already prepared in advance</a> a funded TESTNET address, so let's use it.</p>
                     </td>
                   </tr>
@@ -5014,7 +5014,7 @@
                         <pre><code class="hljs bash">// issue_funded.js<br>...<br>funded_address = <span class="hljs-string">'your funded address here'</span><br>// e.g. funded_address = <span class="hljs-string">'dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef'</span>;<br>...</code></pre>
                       </div>
                       <p></p>
-                      <p>Now use the same code for calling the colored coins API and preparing the data</p>
+                      <p>Now use the same code for calling the digiassets API and preparing the data</p>
                       <p></p>
                       <div class="preCode">
                         <pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> issue_funded.js<br>...<br><span class="hljs-reserved">function</span> postToApi(api_endpoint, json_data, callback) {<br>    <span class="hljs-built_in">console</span>.log(api_endpoint+<span class="hljs-string">': '</span>, JSON.stringify(json_data));<br>    request.post({<br>        <span class="hljs-attribute">url</span>: <span class="hljs-string">'https://testnetapi.digiassets.org/v3/'</span>+api_endpoint,<br>        <span class="hljs-attribute">headers</span>: {<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>},<br>        <span class="hljs-attribute">form</span>: json_data<br>    }, <br>    <span class="hljs-reserved">function</span> (error, response, body) {<br>        <span class="hljs-keyword">if</span> (error) {<br>            <span class="hljs-keyword">return</span> callback(error);<br>        }<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> body === <span class="hljs-string">'string'</span>) {<br>            body = JSON.parse(body)<br>        }<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Status: '</span>, response.statusCode);<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Body: '</span>, JSON.stringify(body));<br>        <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, body);<br>    });<br>};<p></p><p><span class="hljs-reserved">var</span> <b>asset</b> = {<br>    <span class="hljs-string">'</span><b><span class="hljs-string">issueAddress</span></b><span class="hljs-string">'</span>: <b>funded_address</b>,<br>    <span class="hljs-string">'amount'</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-string">'fee'</span>: <span class="hljs-number">5000</span><br>};</p></code><p><code class="hljs javascript">postToApi(<span class="hljs-string">'</span><b><span class="hljs-string">issue</span></b><span class="hljs-string">'</span>, <b>asset</b>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, body)</span></span>{<br>    <span class="hljs-keyword">if</span> (err) {<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'error: '</span>, err);<br>    }<br>});</code></p></pre>
@@ -5099,7 +5099,7 @@
                       </div>
                       <p></p>
                       <p>There we are, this is a hexadecimal representation of the signed issuance transaction. </p>
-                      <p>The next step would be to use the colored coins API to broadcast this signed transaction to the TESTNET network, so that it can be <b>written to the blockchain.</b></p>
+                      <p>The next step would be to use the digiassets API to broadcast this signed transaction to the TESTNET network, so that it can be <b>written to the blockchain.</b></p>
                     </td>
                   </tr>
                 </tbody>
@@ -5156,7 +5156,7 @@
                       <div class="remark">Success! We issued our first Asset on top of the DigiByte TESTNET network</div>
                       <p></p>
                       <p>What we got in response was the transaction ID of the transaction that was broadcasted. We can <a href="https://testnet3.toshi.io/api/v0/transactions/355f07ac190ac71f990f68e6153f812dcfaad6209391872d47a514d43c62b13e" target="_blank">inspect the transaction</a> with any TESTNET explorer. Note the expected structure of an <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Coloring-Scheme#issuance-and-transfer-transactions" target="_blank">Issuance Transaction</a>. We can see the <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Coloring-Scheme#op_return" target="_blank">OP_RETURN</a> output and the fact that since nothing else was specified, everything (DigiBytes and assets) was <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Transfer%20Encoding#transfer-rules" target="_blank">transferred back</a> to the address 'dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef'.</p>
-                      <p>Now let's <a href="http://DigiAssets.org/explorer/testnet/tx/355f07ac190ac71f990f68e6153f812dcfaad6209391872d47a514d43c62b13e" target="_blank">inspect the same transaction</a> with a colored coins explorer. This explorer recognizes that 1 unit of the asset <a href="http://DigiAssets.org/explorer/testnet/asset/LHVFD2PsgiDjbUhNmbGyNgYz8fuuW4K3CuDgs" target="_blank"> LHVFD2PsgiDjbUhNmbGyNgYz8fuuW4K3CuDgs</a> (that we created in a <a href="http://DigiAssets.org/documentation/#Issuance-2ndattempt" target="_blank">previous section</a>) was sent to the issuance address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef" target="_blank">dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef</a>.</p>
+                      <p>Now let's <a href="http://DigiAssets.org/explorer/testnet/tx/355f07ac190ac71f990f68e6153f812dcfaad6209391872d47a514d43c62b13e" target="_blank">inspect the same transaction</a> with a digiassets explorer. This explorer recognizes that 1 unit of the asset <a href="http://DigiAssets.org/explorer/testnet/asset/LHVFD2PsgiDjbUhNmbGyNgYz8fuuW4K3CuDgs" target="_blank"> LHVFD2PsgiDjbUhNmbGyNgYz8fuuW4K3CuDgs</a> (that we created in a <a href="http://DigiAssets.org/documentation/#Issuance-2ndattempt" target="_blank">previous section</a>) was sent to the issuance address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef" target="_blank">dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef</a>.</p>
                     </td>
                   </tr>
                 </tbody>
@@ -5186,7 +5186,7 @@
                     <td>
                       <div name="Transferanasset" data-unique="Transferanasset"></div>
                       <h2>Transfer an asset</h2>
-                      <p>In this section we review using the colored coins API to transfer an existing asset from one address to other addresses.</p>
+                      <p>In this section we review using the digiassets API to transfer an existing asset from one address to other addresses.</p>
                       <p>Let's start by issuing 100 units of a new asset using our <a href="http://DigiAssets.org/documentation/#CreatingaTestnetAddress" target="_blank">previously funded address</a>.</p>
                       <p></p>
                       <div class="remark">create a new file in the same directory where you installed DigiByteJS and Node js</div>
@@ -5259,7 +5259,7 @@
                       <p></p>
                       <h4>Issuing and transferring an asset in one transaction</h4>
                       <p></p>
-                      <p>One of the benefits of the colored coins protocol is the ability to issue an asset and send it within the same transaction. In this section we will use the colored coins API to <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Coloring%20Scheme#issuance-and-transfer-transactions" target="_blank">issue &amp; transfer</a> an asset.</p>
+                      <p>One of the benefits of the digiassets protocol is the ability to issue an asset and send it within the same transaction. In this section we will use the digiassets API to <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Coloring%20Scheme#issuance-and-transfer-transactions" target="_blank">issue &amp; transfer</a> an asset.</p>
                       <p></p>
                       <div class="remark">create a new file in the same directory where you installed DigiByteJS and Node js</div>
                       <br>save the following into that file, say we call it <b>issue_and_transfer.js</b>.
@@ -5279,7 +5279,7 @@
                         <pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> issue_and_transfer.js<br>...<br>key = new DigiByte.PrivateKey({ network: DigiByte.Network.testnet });<br>new_address = key.toAddress().toString();<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'new TESTNET address: ['</span>+new_address+<span class="hljs-string">']'</span>);<br>...</code></pre>
                       </div>
                       <p></p>
-                      <p>Use the familiar code for calling the colored coins API</p>
+                      <p>Use the familiar code for calling the digiassets API</p>
                       <p></p>
                       <div class="preCode">
                         <pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> issue_and_transfer.js<br>...<br><span class="hljs-reserved">function</span> postToApi(api_endpoint, json_data, callback) {<br>    <span class="hljs-built_in">console</span>.log(api_endpoint+<span class="hljs-string">': '</span>, JSON.stringify(json_data));<br>    request.post({<br>        <span class="hljs-attribute">url</span>: <span class="hljs-string">'https://testnetapi.digiassets.org/v2/'</span>+api_endpoint,<br>        <span class="hljs-attribute">headers</span>: {<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>},<br>        <span class="hljs-attribute">form</span>: json_data<br>    }, <br>    <span class="hljs-reserved">function</span> (error, response, body) {<br>        <span class="hljs-keyword">if</span> (error) {<br>            <span class="hljs-keyword">return</span> callback(error);<br>        }<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> body === <span class="hljs-string">'string'</span>) {<br>            body = JSON.parse(body)<br>        }<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Status: '</span>, response.statusCode);<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Body: '</span>, JSON.stringify(body));<br>        <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, body);<br>    });<br>};<br>...</code></pre>
@@ -5311,7 +5311,7 @@
                       <p></p>
                       <p>This is the (hexadecimal representation) of an unsigned issuance transaction of a new asset, with assetID <b>LKafUov95685QJ13FbwbDW6WmYExqXixankWC</b>.</p>
                       <p>Following the same steps as before, <a href="http://DigiAssets.org/documentation/#SignTransaction" target="_blank">sign</a> and <a href="http://DigiAssets.org/documentation/#BroadcastTransaction18" target="_blank">broadcast</a> the transaction. Use our explorer to verify that resulting <a href="http://DigiAssets.org/explorer/testnet/tx/365a53533185f48c0e5dc77c1432db60b2a006f4d3b5565374cffb095524e9ab" target="_blank">issuance and transfer transaction</a> indeed issued 123 units of a new asset <a href="http://DigiAssets.org/explorer/testnet/asset/LKafUov95685QJ13FbwbDW6WmYExqXixankWC" target="_blank">LKafUov95685QJ13FbwbDW6WmYExqXixankWC</a> on address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef" target="_blank">dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef</a> and sent 33 units to the address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1q93sc3rnz3xa7lxjtwry4xy4ugncl2rnrtdsgfu" target="_blank"> dgbt1q93sc3rnz3xa7lxjtwry4xy4ugncl2rnrtdsgfu</a>. </p>
-                      <p>Note that even though it was not explicitly specified, the remaining 90 units of the asset (since 123 were issued) were automatically sent back to the issuance address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef" target="_blank">dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef</a>, as dictated by the <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Transfer%20Encoding#transfer-rules" target="_blank">transfer rules</a> of the colored coins protocol.</p>
+                      <p>Note that even though it was not explicitly specified, the remaining 90 units of the asset (since 123 were issued) were automatically sent back to the issuance address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef" target="_blank">dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef</a>, as dictated by the <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Transfer%20Encoding#transfer-rules" target="_blank">transfer rules</a> of the digiassets protocol.</p>
                     </td>
                   </tr>
                 </tbody>
@@ -5551,7 +5551,7 @@
                     <td>
                       <div name="AssetHolders" data-unique="AssetHolders"></div>
                       <h3>Asset Holders</h3>
-                      <p>In this section we cover issuing a GET request to the colored coins API for a list of an asset's holders. Asset's holders are the set of DigiByte addresses with a non-zero balance for the asset in question.</p>
+                      <p>In this section we cover issuing a GET request to the digiassets API for a list of an asset's holders. Asset's holders are the set of DigiByte addresses with a non-zero balance for the asset in question.</p>
                       <p></p>
                       <h4>Query Asset Holders</h4>
                       <p></p>
@@ -5564,7 +5564,7 @@
                         <pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> asset_holders.js<br>var DigiByte = <span class="hljs-built_in">require</span>(<span class="hljs-string">'digibyte'</span>);<br><span class="hljs-reserved">var</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);<br></code></pre>
                       </div>
                       <p></p>
-                      <p>Now define a second auxiliary function, this time helping us with GET requests from the colored coins API.<br>This function accepts the API end point and a parameter (as well as a callback).</p>
+                      <p>Now define a second auxiliary function, this time helping us with GET requests from the digiassets API.<br>This function accepts the API end point and a parameter (as well as a callback).</p>
                       <p></p>
                       <div class="preCode">
                         <pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> asset_holders.js<br>...<br><span class="hljs-reserved">function</span> getFromApi(api_endpoint, param, callback) {<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Get from:'</span>+api_endpoint+<span class="hljs-string">'/'</span>+param);<br>    request.get(<span class="hljs-string">'https://testnetapi.digiassets.org/v3/'</span>+api_endpoint+<span class="hljs-string">'/'</span>+param, <span class="hljs-reserved">function</span> (error, response, body) {<br>        <span class="hljs-keyword">if</span> (error) {<br>            <span class="hljs-keyword">return</span> callback(error);<br>        }<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> body === <span class="hljs-string">'string'</span>) {<br>            body = JSON.parse(body)<br>        }<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Status:'</span>, response.statusCode);<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Body:'</span>, body);<br>        <span class="hljs-keyword">return</span> callback(<span class="hljs-literal">null</span>, body);<br>    });<br>};<br>...</code></pre>
@@ -5624,7 +5624,7 @@
                     <td>
                       <div name="AssetMetadata" data-unique="AssetMetadata"></div>
                       <h3>Asset Metadata</h3>
-                      <p>In this section we cover issuing a GET request to the colored coins API for a full listing of an asset's <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Metadata" target="_blank">metadata</a>.</p>
+                      <p>In this section we cover issuing a GET request to the digiassets API for a full listing of an asset's <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Metadata" target="_blank">metadata</a>.</p>
                       <p></p>
                       <h4>Query Asset Metadata</h4>
                       <p></p>
@@ -5719,7 +5719,7 @@
                       <p></p>
                       <h4>Querying a DigiByte Address</h4>
                       <p></p>
-                      <p>Let's use the colored coins API to query for the content of the address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1q93sc3rnz3xa7lxjtwry4xy4ugncl2rnrtdsgfu" target="_blank"> dgbt1q93sc3rnz3xa7lxjtwry4xy4ugncl2rnrtdsgfu</a>, where we sent 5 units of the <a href="http://DigiAssets.org/explorer/testnet/asset/LKafUov95685QJ13FbwbDW6WmYExqXixankWC" target="_blank">LKafUov95685QJ13FbwbDW6WmYExqXixankWC</a> asset in the <a href="http://DigiAssets.org/documentation/#Transferanasset" target="_blank">Issue and Transfer</a> section.</p>
+                      <p>Let's use the digiassets API to query for the content of the address <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1q93sc3rnz3xa7lxjtwry4xy4ugncl2rnrtdsgfu" target="_blank"> dgbt1q93sc3rnz3xa7lxjtwry4xy4ugncl2rnrtdsgfu</a>, where we sent 5 units of the <a href="http://DigiAssets.org/explorer/testnet/asset/LKafUov95685QJ13FbwbDW6WmYExqXixankWC" target="_blank">LKafUov95685QJ13FbwbDW6WmYExqXixankWC</a> asset in the <a href="http://DigiAssets.org/documentation/#Transferanasset" target="_blank">Issue and Transfer</a> section.</p>
                       <p></p>
                       <div class="remark">create a new file in the same directory where you installed DigiByteJS &amp; Node js</div>
                       <br>save the following into that file, say we call it <b>query_address.js</b>.
@@ -5786,7 +5786,7 @@
                     <td>
                       <div name="MetadataEncryption" data-unique="MetadataEncryption"></div>
                       <h2>Metadata Encryption</h2>
-                      <p>The colored coins protocol supports metadata encryption.</p>
+                      <p>The digiassets protocol supports metadata encryption.</p>
                       <p></p>
                       <div class="remark">create a new file in the same directory where you installed DigiByteJS and Node js</div>
                       <br>save the following into that file, say we call it <b>metadata_encryption.js</b>.<br>As before, we require the dependencies and use the <i>postToApi</i> function and our funded address: <a href="http://DigiAssets.org/explorer/testnet/address/dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef" target="_blank">dgbt1qa69rmjlswpzc5ar947p2hfkag645j74rzz2zef</a> (you should use the funded address <a href="http://DigiAssets.org/documentation/#CreatingaTestnetAddress" target="_blank">created during setup</a>).
@@ -5805,7 +5805,7 @@
                         <pre><code class="hljs cpp"><span class="hljs-comment">// metadata_encryption.js</span><br><span class="hljs-comment">.......</span><br><span class="hljs-comment">metadata: {</span><br><span class="hljs-comment">    assetName: "Time Machine",        </span><br><span class="hljs-comment">    issuer: "Dr. Emmet Brown", </span><br><span class="hljs-comment">    description: "The flux capacitor will send us back to the future",</span><br><span class="hljs-comment">    urls: [</span><br><span class="hljs-comment">      {name: 'imdb',url: 'http://www.imdb.com/title/tt0088763/', mimeType: 'text/html', dataHash: '249e3e3c77d07d8fe8984a47bbbab8c89aeb8b1dadf4e2ff47db42a3e5a1c126'},</span><br><span class="hljs-comment">              ],              </span><br><span class="hljs-comment">    userData :{</span><br><span class="hljs-comment">      meta: [</span><br><span class="hljs-comment">        {key: 'Weight', value: 50000, type: 'Number'},</span><br><span class="hljs-comment">        {key: 'Model', value: "Delorean", type: 'String'},       </span><br><span class="hljs-comment">             ],</span><br><span class="hljs-comment">      technology: 'flux capacitor 666',</span><br><span class="hljs-comment">      "Undelrying Physics": 'This magnetic flux calculator calculates the magnetic flux of an object based on the magnitude of the magnetic field which the object emanates and the area of the object, according to the formula, Φ=BA, if the magnetic field is at a 90� angle (perpendicular) to the area of the object. If the magnetic field is not perpendicular to the object, then use the calculator below, which computes the magnetic flux at non-perpendicular angles. The magnetic flux is directly proportional to the magnitude of the magnetic field emanating from the object and the area of the object. The greater the magnetic field, the greater the magnetic flux. Conversely, the smaller the magnetic field, the smaller the flux. The area of the object has the same direct relationship. The greater the area of an object, the greater the flux. Conversely, the smaller the area, the smaller the magnetic flux.'</span><br><span class="hljs-comment">    } </span><br><span class="hljs-comment">  }</span></code></pre>
                       </div>
                       <p></p>
-                      <p>However, since our time travel technology is secret, we would like to <b>encrypt</b> the content of the <b>Underlying Physics</b> key. The colored coins protocol supports encrypting the value of <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Static-Data#userdata" target="_blank">userData</a> keys (except for the ones that appear under the <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Static-Data#meta" target="_blank">meta key array</a>) using <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">RSA public key encryption.</a></p>
+                      <p>However, since our time travel technology is secret, we would like to <b>encrypt</b> the content of the <b>Underlying Physics</b> key. The digiassets protocol supports encrypting the value of <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Static-Data#userdata" target="_blank">userData</a> keys (except for the ones that appear under the <a href="https://github.com/DigiAssets/DigiAssets-Protocol-Specification/wiki/Static-Data#meta" target="_blank">meta key array</a>) using <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">RSA public key encryption.</a></p>
                       <p><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">We can add an RSA public/private key pair by installing an additional library, called </a><a href="https://www.npmjs.com/package/keypair" target="_blank">keypair</a>.<br>To do that type in the console<br></p>
                       <div class="preCode">
                         <pre><code class="hljs coffeescript">sudo <span class="hljs-built_in">npm</span> install keypair</code></pre>
@@ -5880,8 +5880,8 @@
                     <td>
                       <div name="MultisigAddresses" data-unique="MultisigAddresses"></div>
                       <h2>Multisig Addresses</h2>
-                      <p>In this section we describe the colored coins API support for <a href="https://en.bitcoin.it/wiki/Multisignature" target="_blank">multisignature DigiByte Addresses</a>.</p>
-                      <p>The colored coins protocol lends full support for issuing an sending assets to and from multisignature addresses. Multisignature addresses (or <i>multisig</i> for short) are most preferably created by the client. However, the colored coins API also supports creating a multisig address for you. </p>
+                      <p>In this section we describe the digiassets API support for <a href="https://en.bitcoin.it/wiki/Multisignature" target="_blank">multisignature DigiByte Addresses</a>.</p>
+                      <p>The digiassets protocol lends full support for issuing an sending assets to and from multisignature addresses. Multisignature addresses (or <i>multisig</i> for short) are most preferably created by the client. However, the digiassets API also supports creating a multisig address for you. </p>
                       <p>We first describe how to generate a multisig address using nodejs. We proceed to issue assets on and transfer them to multisig addresses. Finally we discuss the API support for creating a multisig addresses.</p>
                     </td>
                   </tr>
@@ -5971,7 +5971,7 @@
                       <div name="MultisigIssuanceAddress" data-unique="MultisigIssuanceAddress"></div>
                       <h3>Multisig Issuance Address</h3>
                       <p>In this section we will issue an asset on the multisig address <a href="http://DigiAssets.org/explorer/testnet/address/2Mu6MbHBxSpD2CLDpQRATKf3X8L4TSapmV9" target="_blank">2Mu6MbHBxSpD2CLDpQRATKf3X8L4TSapmV9</a> that was created in the <a href="http://DigiAssets.org/documentation/#CreatingamultisigAddress" target="_blank">previous section</a>.</p>
-                      <p>In fact, in terms of the colored coins protocol it makes no difference at all that the address is a multisig address, we basically use the exact same code that was used in the <a href="http://DigiAssets.org/documentation/#Issueanewasset" target="_blank">Getting Started|Issue a New Asset</a> section.</p>
+                      <p>In fact, in terms of the digiassets protocol it makes no difference at all that the address is a multisig address, we basically use the exact same code that was used in the <a href="http://DigiAssets.org/documentation/#Issueanewasset" target="_blank">Getting Started|Issue a New Asset</a> section.</p>
                       <p>first we must make sure to fund this address by sending some satoshis to it as we did in the <a href="http://DigiAssets.org/documentation/#CreatingaTestnetAddress" target="_blank">Getting Started | Setup | Creating a Testnet Address</a> section.</p>
                       <p></p>
                       <div class="preCode">
@@ -6060,7 +6060,7 @@
                     <td>
                       <div name="Auto-generatedMultisig" data-unique="Auto-generatedMultisig"></div>
                       <h3>Auto-generated Multisig</h3>
-                      <p>The colored coins API can create a multisig address for you from a list of public keys.</p>
+                      <p>The digiassets API can create a multisig address for you from a list of public keys.</p>
                       <p></p>
                       <div class="warning">While this option may be easier to use, openly sending the list of public keys exposes some security and privacy concerns (at least in principle).</div>
                       <p></p>
